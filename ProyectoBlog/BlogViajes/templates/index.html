@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Viajes</title>
+</head>
+
+<style>
+    header {
+    display: flex;
+    background-color: gray;
+    height: 60px;
+  }
+  header h1 {
+    width: 25%;
+    margin-left: 2rem;
+    margin-top: 10px;
+  }
+  #nav-bar {
+    width: 20%;
+    text-align: center;
+    padding-top: 20px;
+    margin-left: 10%;
+    font-size: 20px;
+  }
+  body {
+    margin: 0px;
+  }
+  .nav-link {
+    margin-right: 4rem;
+    text-decoration: none;
+    color: white;
+  }
+  .nav-link:hover {
+    color: green;
+  }
+  .cuadricula {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px auto;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 80%;
+  }
+  .entrada {
+    border: 1px solid black;
+    width: 300px;
+    height: 300px;
+    margin: 10px;
+    align-items: center;
+    justify-content: center;
+  }
+  </style>
+  
+  <header>
+    <h1>Blogejandro de Viajerrios</h1>
+    <nav id="nav-bar">
+        <a class="nav-link" id="nav-1"  href="{% url 'agregar' as agregar_url %}">Agregar</a>
+        <a class="nav-link" id="nav-2" href="{% url 'buscar' as buscar_url %}">Buscar</a>
+      </nav>
+  </header>
+
+  <body>
+
+  </body>
+  
+</html>
