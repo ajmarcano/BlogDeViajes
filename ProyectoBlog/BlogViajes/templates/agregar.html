@@ -3,5 +3,16 @@
 {% load static %}
 
 {% block contenidoDinamico %}
-
+    <body>
+        <form action="agregar">
+        <fieldset name="campos">
+            <label><p name="strong">Destino</p></label><input type="text" id="destino">
+            <label for="img"><p name="strong">Seleccionar imagen:</p></label>
+        <input type="file" id="img" name="img" accept="image/*">
+            <label><p name="strong">Reseña</p></label> <textarea cols="60" rows="3" id="reseña" placeholder="Agrega tu reseña aqui"></textarea>
+            <label><p name="strong">Autor</p></label> <input type="text" id="autor">
+            <input type="Submit" id="submit">
+        </fieldset>
+        </form>
+    </body>
 {% endblock %}
