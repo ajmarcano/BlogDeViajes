@@ -6,5 +6,4 @@ def index(request):
     return render(request, "principal.html")
 
 def agregar(request):
-    
-
+    pass
