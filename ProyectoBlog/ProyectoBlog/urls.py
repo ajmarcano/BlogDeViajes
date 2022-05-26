@@ -19,5 +19,7 @@ from BlogViajes import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('home/', views.index),
+    path('principal/', views.principal, name="principal"),
+    path('agregar', views.agregar, name="agregar"),
+    path('buscar', views.buscar, name="buscar"),
 ]

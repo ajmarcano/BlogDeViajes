@@ -2,8 +2,11 @@ from django.shortcuts import render
 
 # Create your views here.
 
-def index(request):
+def principal(request):
     return render(request, "principal.html")
 
 def agregar(request):
-    pass
+    return render(request, "agregar.html")
+
+def buscar(request):
+    return render(request, "buscar.html")

@@ -28,6 +28,10 @@
   body {
     margin: 0px;
   }
+  .home {
+    text-decoration: none;
+    color: white;
+  }
   .nav-link {
     margin-right: 4rem;
     text-decoration: none;
@@ -56,15 +60,17 @@
   </style>
   
   <header>
-    <h1>Blogejandro de Viajerrios</h1>
+    <h1><a class="home" id="home" href="{% url 'principal' %}">Blogejandro de Viajerrios</a></h1>
     <nav id="nav-bar">
-        <a class="nav-link" id="nav-1"  href="{% url 'agregar' as agregar_url %}">Agregar</a>
-        <a class="nav-link" id="nav-2" href="{% url 'buscar' as buscar_url %}">Buscar</a>
+        <a class="nav-link" id="nav-1"  href="{% url 'agregar' %}">Agregar</a>
+        <a class="nav-link" id="nav-2" href="{% url 'buscar' %}">Buscar</a>
       </nav>
   </header>
 
   <body>
+    {% block contenidoDinamico %}
 
+    {% endblock %}
   </body>
   
 </html>
