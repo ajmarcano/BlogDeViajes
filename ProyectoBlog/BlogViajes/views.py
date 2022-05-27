@@ -1,4 +1,6 @@
+from django.http import HttpResponse, HttpResponseRedirect, HttpResponseBadRequest
 from django.shortcuts import render
+from BlogViajes.models import Viaje
 from BlogViajes.forms import Entrada
 
 # Create your views here.
@@ -12,20 +14,21 @@ def agregar(request):
 
         formulario = Entrada(request.POST)
 
-        print(formulario)
+        if formulario.is_valid():
 
-        if formulario.is_valid:
+            Destino = formulario.cleaned_data['destino']
+            Imagen = formulario.cleaned_data['imagen']
+            Reseña = formulario.cleaned_data['reseña']
+            Autor = formulario.cleaned_data['autor']
+            Viaje ( Destino=Destino, Imagen=Imagen, Reseña=Reseña, Autor=Autor ).save()
 
-            informacion = formulario.cleaned_data
+            return HttpResponseRedirect("/BlogViajes")
 
-            entrada = Entrada ( destino=informacion["destino"], imagen=informacion["imagen"], reseña=informacion["reseña"], autor=informacion["autor"] )
-
-            entrada.save()
-
-            return render(request, r"C:\Users\Leisa\Downloads\ProyectoFinal-20220526T004057Z-001\ProyectoFinal\ProyectoBlog\BlogViajes\templates\principal.html")
+    elif request.method == "GET":
+        formulario = Entrada()
 
     else:
-        formulario = Entrada()
+        return HttpResponseBadRequest("Error. No reconozco ese comando")
 
     return render(request, r"C:\Users\Leisa\Downloads\ProyectoFinal-20220526T004057Z-001\ProyectoFinal\ProyectoBlog\BlogViajes\templates\agregar.html", {"formulario":formulario})
 
