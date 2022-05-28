@@ -4,12 +4,19 @@
 
 {% block contenidoDinamico %}
         
-    {% if entradas %}
-        {% for entrada in entradas %}
-            {{ entrada.Destino }}
-            {{ entrada.Imagen }}
-            {{ entrada.Reseña }}
-            {{ entrada.Autor }}
-        {% endfor %}
+    {% if viajes %}
+        <div class="cuadricula"> 
+            {% for viaje in viajes %}
+                <div class="entrada">
+                    <div class="contenido">
+                        <p>{{ viaje.Destino }}</p>
+                        <img src='{{ viaje.Imagen }}' id="imagen">
+                        <p>{{ viaje.Reseña }}</p>
+                        <p>{{ viaje.Autor }}</p>
+                    </div>    
+                </div>
+            {% endfor %}
+        </div>
+        
     {% endif %}
 {% endblock %}

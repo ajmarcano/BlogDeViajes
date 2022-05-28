@@ -5,12 +5,19 @@
 {% block contenidoDinamico %}
     <body>
         <form action="{% url 'agregar' %}" method="POST">{% csrf_token %}
-            <table>
-
-                {{ formulario.as_table }}
-
-            </table>
-            <input type="submit" value="Enviar">
+            {{ formulario.non_field_errors }}
+            <fieldset name="campos">
+              {{ formulario.destino.errors }}  
+              <label for="{{ formulario.destino.id_for_label }}"><p name="strong">Destino </p></label> {{ formulario.destino }}
+              {{ formulario.imagen.errors }}  
+              <label for="{{ formulario.imagen.id_for_label }}"><p name="strong">Ingresa la URL de tu imagen </p></label>
+              {{ formulario.imagen }}
+              {{ formulario.reseña.errors }}  
+              <label for="{{ formulario.reseña.id_for_label }}"><p name="strong">Reseña </p></label> {{ formulario.reseña }}
+              {{ formulario.autor.errors }}  
+              <label for="{{ formulario.autor.id_for_label }}"><p name="strong">Autor </p></label> {{ formulario.autor }}
+              <input type="Submit" id="submit">
+            </fieldset>
         </form>
     </body>
 {% endblock %}

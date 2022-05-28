@@ -6,7 +6,11 @@ from BlogViajes.forms import Entrada
 # Create your views here.
 
 def principal(request):
-    return render(request, "principal.html")
+    viajes = Viaje.objects.all()
+
+    context = {'viajes': viajes}
+
+    return render(request, "principal.html", context)
 
 def agregar(request):
 
