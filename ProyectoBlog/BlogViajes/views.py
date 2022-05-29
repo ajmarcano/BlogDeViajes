@@ -34,7 +34,7 @@ def agregar(request):
     else:
         return HttpResponseBadRequest("Error. No reconozco ese comando")
 
-    return render(request, r"C:\Users\Leisa\Downloads\ProyectoFinal-20220526T004057Z-001\ProyectoFinal\ProyectoBlog\BlogViajes\templates\agregar.html", {"formulario":formulario})
+    return render(request, "agregar.html", {"formulario":formulario})
 
 def buscar(request):
     return render(request, "buscar.html")
