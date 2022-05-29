@@ -55,7 +55,7 @@ ROOT_URLCONF = 'ProyectoBlog.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [r"C:\Users\Leisa\Downloads\ProyectoFinal-20220526T004057Z-001\ProyectoFinal\ProyectoBlog\BlogViajes\templates"],
+        'DIRS': ["BlogViajes/templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
