@@ -1,12 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <form action="/BlogViajes/agregar/" method="post">
-</body>
-</html>
+{% extends "C:\Users\Leisa\Downloads\ProyectoFinal-20220526T004057Z-001\ProyectoFinal\ProyectoBlog\BlogViajes\templates\index.html" %}
+
+{% load static %}
+
+{% block contenidoDinamico %}
+    <body>
+        <form action="{% url 'agregar' %}" method="POST">{% csrf_token %}
+            {{ formulario.non_field_errors }}
+            <fieldset name="campos">
+              {{ formulario.destino.errors }}  
+              <label for="{{ formulario.destino.id_for_label }}"><p name="strong">Destino </p></label> {{ formulario.destino }}
+              {{ formulario.imagen.errors }}  
+              <label for="{{ formulario.imagen.id_for_label }}"><p name="strong">Ingresa la URL de tu imagen </p></label>
+              {{ formulario.imagen }}
+              {{ formulario.reseña.errors }}  
+              <label for="{{ formulario.reseña.id_for_label }}"><p name="strong">Reseña </p></label> {{ formulario.reseña }}
+              {{ formulario.autor.errors }}  
+              <label for="{{ formulario.autor.id_for_label }}"><p name="strong">Autor </p></label> {{ formulario.autor }}
+              <input type="Submit" id="submit">
+            </fieldset>
+        </form>
+    </body>
+{% endblock %}
