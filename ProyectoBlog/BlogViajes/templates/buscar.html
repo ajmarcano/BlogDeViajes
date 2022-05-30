@@ -4,4 +4,12 @@
 
 {% block contenidoDinamico %}
 
+    <form action="{% url 'buscar' %}" method="get">
+        {% csrf_token %}
+        <input type="text" name="viajes" id="viajes">
+
+        <input type="submit" value="Buscar">
+
+    </form>
+
 {% endblock %}

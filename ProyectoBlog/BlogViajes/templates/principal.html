@@ -3,16 +3,19 @@
 {% load static %}
 
 {% block contenidoDinamico %}
-        
+    {% if resultados_busqueda %}
+        <h1>Resultados de la busqueda</h1>
+    {% endif %}    
+    
     {% if viajes %}
         <div class="cuadricula"> 
             {% for viaje in viajes %}
                 <div class="entrada">
                     <div class="contenido">
-                        <p>{{ viaje.Destino }}</p>
-                        <img src='{{ viaje.Imagen }}' id="imagen">
-                        <p>{{ viaje.Reseña }}</p>
-                        <p>{{ viaje.Autor }}</p>
+                        <p>{{ viaje.destino }}</p>
+                        <img src='{{ viaje.imagen }}' id="imagen">
+                        <p>{{ viaje.reseña }}</p>
+                        <p>{{ viaje.autor }}</p>
                     </div>    
                 </div>
             {% endfor %}
