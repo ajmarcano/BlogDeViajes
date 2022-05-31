@@ -3,11 +3,8 @@
 {% load static %}
 
 {% block contenidoDinamico %}
-    {% if resultados_busqueda %}
-        <h1>Resultados de la busqueda</h1>
-    {% endif %}    
-    
     {% if viajes %}
+    <h2 id="viajes">Viajes</h2>  
         <div class="cuadricula"> 
             {% for viaje in viajes %}
                 <div class="entrada">
@@ -22,4 +19,37 @@
         </div>
         
     {% endif %}
+
+    {% if aeropuertos %}
+    <h2>Aeropuertos</h2>
+        <div class="cuadricula"> 
+            {% for aeropuerto in aeropuertos %}
+                <div class="entrada">
+                    <div class="contenido">
+                        <p>{{ aeropuerto.nombre }}</p>
+                        <p>{{ aeropuerto.ciudad }}</p>
+                        <img src='{{ aeropuerto.imagen }}' id="imagen">
+                        <p>Calificación: {{ aeropuerto.calificacion }}/5 puntos</p>
+                        <p>{{ aeropuerto.autor }}</p>
+                    </div>    
+                </div>
+            {% endfor %}
+        </div>
+        
+    {% endif %}
+    <div class="form-suscriptor">    
+    <h2 id="suscribete">Suscríbete a nuestro blog:</h2>
+    <form id="suscriptor" action="{% url 'principal' %}" method="POST">{% csrf_token %}
+        {{ formulario.non_field_errors }}
+        <fieldset name="campos">
+          {{ formulario.nombre.errors }}  
+          <label for="{{ formulario.nombre.id_for_label }}"><p name="strong">Nombre </p></label> {{ formulario.nombre }}
+          {{ formulario.apellido.errors }}  
+          <label for="{{ formulario.apellido.id_for_label }}"><p name="strong">Apellido </p></label> {{ formulario.apellido }}
+          {{ formulario.email.errors }}  
+          <label for="{{ formulario.email.id_for_label }}"><p name="strong">Email </p></label> {{ formulario.email }}
+          <input type="Submit" id="submit">
+        </fieldset>
+    </form>
+    </div>
 {% endblock %}

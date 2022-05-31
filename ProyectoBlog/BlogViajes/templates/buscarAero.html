@@ -4,7 +4,7 @@
 
 {% block contenidoDinamico %}
 
-    <form action="{% url 'buscar' %}" method="get">
+    <form action="{% url 'buscarAero' %}" method="get">
         {% csrf_token %}
         {{ form_busqueda }}
         <input type="submit" value="Buscar">

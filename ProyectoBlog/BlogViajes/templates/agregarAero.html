@@ -1,0 +1,25 @@
+{% extends "index.html" %}
+
+{% load static %}
+
+{% block contenidoDinamico %}
+    <body>
+        <form action="{% url 'agregarAero' %}" method="POST">{% csrf_token %}
+            {{ formulario.non_field_errors }}
+            <fieldset name="campos">
+              {{ formulario.nombre.errors }}  
+              <label for="{{ formulario.nombre.id_for_label }}"><p name="strong">Nombre </p></label> {{ formulario.nombre }}
+              {{ formulario.ciudad.errors }}  
+              <label for="{{ formulario.ciudad.id_for_label }}"><p name="strong">Ciudad </p></label> {{ formulario.ciudad }}
+              {{ formulario.imagen.errors }}  
+              <label for="{{ formulario.imagen.id_for_label }}"><p name="strong">Ingresa la URL de tu imagen </p></label>
+              {{ formulario.imagen }}
+              {{ formulario.calificacion.errors }}  
+              <label for="{{ formulario.calificacion.id_for_label }}"><p name="strong">Calificacion </p></label> {{ formulario.calificacion }}
+              {{ formulario.autor.errors }}  
+              <label for="{{ formulario.autor.id_for_label }}"><p name="strong">Autor </p></label> {{ formulario.autor }}
+              <input type="Submit" id="submit">
+            </fieldset>
+        </form>
+    </body>
+{% endblock %}
